@@ -5,9 +5,9 @@ import java.util.Objects;
 
 public class Order {
     private int id;
-    private Product products;
+    private List<Product> products;
 
-    public Order(int id, Product products){
+    public Order(int id, List<Product> products){
         this.id = id;
         this.products = products;
     }
@@ -20,11 +20,11 @@ public class Order {
         this.id = id;
     }
 
-    public Product getProducts(){
+    public List<Product> getProducts(){
         return products;
     }
 
-    public void setProducts(Product products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 
