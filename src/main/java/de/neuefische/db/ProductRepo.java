@@ -10,20 +10,22 @@ public class ProductRepo {
     private List<Product> products;
 
     // constructors
-    public ProductRepo(List<Product> products){
+    public ProductRepo(List<Product> products) {
         this.products = new ArrayList<>(products);
     }
 
-    public ProductRepo(){
-    };
+    public ProductRepo() {
+    }
+
+    ;
 
 
-    public List<Product> listProducts(){
+    public List<Product> listProducts() {
         return products;
     }
 
-    public Product getProductById(int id){
-        for (Product product : products){
+    public Product getProductById(int id) {
+        for (Product product : products) {
             if (product.getId() == id) {
                 return product;
             }
@@ -31,4 +33,8 @@ public class ProductRepo {
         return null;
     }
 
+    // to do: add test for addProduct()
+    public void addProduct(Product product) {
+        products.add(product);
+    }
 }
