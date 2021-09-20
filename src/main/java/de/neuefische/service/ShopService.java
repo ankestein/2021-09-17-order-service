@@ -25,7 +25,7 @@ public class ShopService {
     public void addOrder(int orderId, List<Integer> productIds) {
         ProductRepo productsToOrder = new ProductRepo();
         for (int productId : productIds) {
-            Product product = getProductById(productId);
+            Product product = getProduct(productId);
             if (product == null) {
                 throw new RuntimeException("Product with id " + productId + " does not exist.");
             }
