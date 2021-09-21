@@ -19,7 +19,8 @@ public class OrderRepo {
     }
 
     public List<Order> listOrders(){
-        return new ArrayList<>(orders.values());
+        return List.copyOf(orders.values());
+        // List.copyOf: unmodifiable List to protect orders from the outside (new ArrayList would be modifiable)
     }
 
     public Order getOrder(int id) {
