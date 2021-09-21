@@ -16,16 +16,8 @@ public class Order {
         return id;
     }
 
-    public void setId(){
-        this.id = id;
-    }
-
     public List<Product> getProducts(){
         return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
     }
 
     @Override
@@ -39,5 +31,13 @@ public class Order {
     @Override
     public int hashCode() {
         return Objects.hash(id, products);
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", products=" + products +
+                '}';
     }
 }
