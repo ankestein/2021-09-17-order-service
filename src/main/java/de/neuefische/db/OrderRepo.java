@@ -27,7 +27,7 @@ public class OrderRepo {
         return orders.get(id);
     }
 
-    public Order addOrders(Order order){
+    public Order addOrder(Order order){
         if (this.orders.containsKey(order.getId())) {
             throw new RuntimeException("Cannot place order; order with id " + order.getId() + " already exists.");
         }
@@ -35,12 +35,6 @@ public class OrderRepo {
         return order;
     }
 
-    // not necessarily needed: possibility to input list of orders
-    public void addOrders(List<Order> orders) {
-        for (Order order : orders) {
-            addOrders(order);
-        }
-    }
 
 }
 

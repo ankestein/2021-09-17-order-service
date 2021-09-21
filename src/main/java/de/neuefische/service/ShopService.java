@@ -7,15 +7,26 @@ import de.neuefische.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 public class ShopService {
-
 
     private ProductRepo productRepo;
     private OrderRepo orderRepo;
 
-    public Product getProduct(int id) {
-        return productRepo.getProductById(id);
+    public ShopService(ProductRepo productRepo, OrderRepo orderRepo) {
+        this.productRepo = productRepo;
+        this.orderRepo = orderRepo;
+    }
+
+    private Product getProduct(String productId){
+        Optional<Product> optionalProduct = productRepo.getProductById(productId);
+        if (optionalProduct.isPresent()) {
+            return optionalProduct.get();
+        } else {
+            throw new IllegalArgumentException("Product with ID " + productId + " not found");
+        }
     }
 
     public List<Product> listProducts() {
@@ -23,16 +34,14 @@ public class ShopService {
     }
 
 
-    public void addOrder(int orderId, List<Integer> productIds) {
-        ProductRepo productsToOrder = new ProductRepo();
-        for (int productId : productIds) {
-            Product product = getProduct(productId);
-            if (product == null) {
-                throw new RuntimeException("Product with id " + productId + " does not exist.");
-            }
-            productsToOrder.addProduct(product);
+    public Order addOrder(List<String> productIds) {
+        List<Product> productsToOrder = new ArrayList<>();
+        for (String productId : productIds) {
+            Product productToAdd = getProduct(productId);
+            productsToOrder.add(productToAdd);
         }
-        orderRepo.addOrders(new List<Order>(orderId, productsToOrder));
+        String id = UUID.randomUUID().toString();
+        return orderRepo.addOrder(new Order(id, productsToOrder));
     }
 
 
