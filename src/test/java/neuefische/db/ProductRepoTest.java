@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ProductRepoTest {
 
@@ -55,7 +56,7 @@ public class ProductRepoTest {
         ProductRepo productRepo = new ProductRepo(products);
 
         // when
-        Product actual = productRepo.getProductById(2);
+        Optional<Product> actual = productRepo.getProductById(2);
 
         // then
         Assertions.assertEquals(new Product(2, "stapler"), actual);
@@ -74,7 +75,7 @@ public class ProductRepoTest {
         ProductRepo productRepo = new ProductRepo(products);
 
         // when
-        Product actual = productRepo.getProductById(4);
+        Optional<Product> actual = productRepo.getProductById(4);
 
         // then
         Assertions.assertNull(actual);
