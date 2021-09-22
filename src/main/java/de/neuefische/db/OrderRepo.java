@@ -10,14 +10,6 @@ import java.util.Map;
 public class OrderRepo {
     private Map<Integer, Order> orders = new HashMap<>();
 
-
-    public OrderRepo(List<Order> orders) {
-        addOrders(orders);
-    }
-
-    public OrderRepo(){
-    }
-
     public List<Order> listOrders(){
         return List.copyOf(orders.values());
         // List.copyOf: unmodifiable List to protect orders from the outside (new ArrayList would be modifiable)
