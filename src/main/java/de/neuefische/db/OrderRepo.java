@@ -9,6 +9,13 @@ import java.util.Map;
 public class OrderRepo {
     private Map<String, Order> orders = new HashMap<>();
 
+    public OrderRepo(List<Order> orders) {
+        addOrders(orders);
+    }
+
+    public OrderRepo(){
+    }
+
     public List<Order> listOrders(){
         return List.copyOf(orders.values());
         // List.copyOf: unmodifiable List to protect orders from the outside (new ArrayList would be modifiable)
@@ -26,6 +33,12 @@ public class OrderRepo {
         return order;
     }
 
+    // not necessarily needed: possibility to input list of orders
+    public void addOrders(List<Order> orders) {
+        for (Order order : orders) {
+            addOrder(order);
+        }
+    }
 
 }
 
