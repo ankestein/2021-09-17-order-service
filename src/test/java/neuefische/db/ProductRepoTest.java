@@ -59,7 +59,7 @@ public class ProductRepoTest {
         Optional<Product> actual = productRepo.getProductById(2);
 
         // then
-        Assertions.assertEquals(new Product(2, "stapler"), actual);
+        Assertions.assertEquals(new Product(2, "stapler"), actual.get());
     }
 
 
