@@ -27,7 +27,7 @@ public class ProductRepo {
 
     public Optional<Product> getProductById(int id) {
         for (Product product : products) {
-            if (product.getId().equals(id)) {
+            if (product.getId() == id) {
                 return Optional.of(product);
             }
         }
