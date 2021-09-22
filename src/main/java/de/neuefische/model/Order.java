@@ -4,15 +4,15 @@ import java.util.List;
 import java.util.Objects;
 
 public class Order {
-    private int id;
+    private String id;
     private List<Product> products;
 
-    public Order(int id, List<Product> products){
+    public Order(String id, List<Product> products){
         this.id = id;
         this.products = products;
     }
 
-    public int getId(){
+    public String getId(){
         return id;
     }
 

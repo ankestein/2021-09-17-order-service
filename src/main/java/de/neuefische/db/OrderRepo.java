@@ -2,13 +2,12 @@ package de.neuefische.db;
 
 import de.neuefische.model.Order;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class OrderRepo {
-    private Map<Integer, Order> orders = new HashMap<>();
+    private Map<String, Order> orders = new HashMap<>();
 
     public List<Order> listOrders(){
         return List.copyOf(orders.values());
