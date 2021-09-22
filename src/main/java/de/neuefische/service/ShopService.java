@@ -45,7 +45,7 @@ public class ShopService {
     }
 
 
-    public Order getOrder(int id) {
+    public Order getOrder(String id) {
         return orderRepo.getOrder(id);
     }
 

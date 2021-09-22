@@ -21,7 +21,7 @@ public class OrderRepo {
         // List.copyOf: unmodifiable List to protect orders from the outside (new ArrayList would be modifiable)
     }
 
-    public Order getOrder(int id) {
+    public Order getOrder(String id) {
         return orders.get(id);
     }
 
