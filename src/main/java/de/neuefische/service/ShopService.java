@@ -34,9 +34,9 @@ public class ShopService {
     }
 
 
-    public Order addOrder(List<String> productIds) {
+    public Order addOrder(List<Integer> productIds) {
         List<Product> productsToOrder = new ArrayList<>();
-        for (String productId : productIds) {
+        for (int productId : productIds) {
             Product productToAdd = getProduct(productId);
             productsToOrder.add(productToAdd);
         }
