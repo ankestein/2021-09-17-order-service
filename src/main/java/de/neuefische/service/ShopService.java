@@ -20,7 +20,7 @@ public class ShopService {
         this.orderRepo = orderRepo;
     }
 
-    private Product getProduct(String productId){
+    private Product getProduct(int productId){
         Optional<Product> optionalProduct = productRepo.getProductById(productId);
         if (optionalProduct.isPresent()) {
             return optionalProduct.get();
