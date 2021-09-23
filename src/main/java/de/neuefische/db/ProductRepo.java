@@ -31,7 +31,7 @@ public class ProductRepo {
                 return Optional.of(product);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     // to do: add test for addProduct()
